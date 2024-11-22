@@ -35,6 +35,10 @@ class Animal{
         return $this->name;
     }
 
+    public function setName(){
+        $this->name=$name;
+    }
+
 }
 
 // 實例化(instance)
@@ -46,6 +50,9 @@ echo $cat->getName();
 echo $cat->run();
 echo $cat->speed();
 // print_r($cat->$feet);
+
+$cat->setName('Mary');
+echo $cat->getName();
 
 
 ?>
