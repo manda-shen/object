@@ -12,10 +12,10 @@
 <?php
 
 class Animal{
-    public $type='animal';
-    public $name='John';
-    public $hair_color='black';
-    public $feet=['front-left','front-right','back-left','back-right'];
+    protected $type='animal';
+    protected $name='John';
+    protected $hair_color='black';
+    protected $feet=['front-left','front-right','back-left','back-right'];
 
     function __construct($type,$name,$hair_color){
         $this->type=$type;
@@ -24,18 +24,18 @@ class Animal{
     }
     
     function run(){
-        echo $this->name. ' is running ';
+        echo $this->name . ' is running ';
     }
 
     function speed(){
-        echo $this->name. ' is running at 20km/h';
+        echo $this->name . ' is running at 20km/h';
     }
 
     public function getName(){
         return $this->name;
     }
 
-    public function setName(){
+    public function setName($name){
         $this->name=$name;
     }
 
@@ -53,6 +53,45 @@ echo $cat->speed();
 
 $cat->setName('Mary');
 echo $cat->getName();
+
+
+?>
+
+
+<h3>繼承</h3>
+<?php
+
+// class Cat extends Animal{
+//     protected $type='cat';
+    
+//     function __construct($name,$hair_color){
+//         $this->name=$name;
+//         $this->hair_color=$hair_color;
+//     }
+// }
+
+
+class Cat extends Animal{
+    protected $type='cat';
+    protected $name="Judy";
+    function __construct($hair_color){
+        $this->hair_color=$hair_color;
+    }
+}
+
+
+// $mycat=new Cat('cat','kitty','white');
+$mycat=new Cat('white');
+
+echo$mycat->getName();
+echo "<br>";
+echo $mycat->run();
+echo "<br>";
+echo $mycat->speed();
+echo "<br>";
+$mycat->setName("judy");
+echo $mycat->getName();
+echo "<br>";
 
 
 ?>
